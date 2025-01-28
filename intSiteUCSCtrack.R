@@ -2,7 +2,7 @@ library(dplyr)
 source('lib.R')
 
 # Read in intSite data and rename / add columns for createIntUCSCTrack()
-intSites <- readr::read_tsv('intSites.tsv.gz', show_col_types = FALSE)
+intSites <- distinct(readr::read_tsv('intSites.tsv.gz', show_col_types = FALSE))
 intSites <-  rename(intSites, seqnames = 'chromosome', start = 'position')
 intSites$end <- intSites$start
 
